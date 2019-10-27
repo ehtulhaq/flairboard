@@ -1,6 +1,6 @@
 /**
  * Exports all routes
  *
- * @author [Ehtesham Mohammed]
+ * @author [Ehtesham Ul Haq]
  */
 export { default as ApplicationRoutes } from './ApplicationRoutes'
