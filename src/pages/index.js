@@ -4,6 +4,7 @@
  * @author [Ehtesham Ul Haq]
  */
 
-export { default as BasePage } from './BasePage/BasePage'
-export { default as DashboardPage } from './DashboardPage/DashboardPage'
 export { default as LoginPage } from './LoginPage/LoginPage'
+export { default as BasePage } from './BasePage/BasePage'
+export { default as BoardsPage } from './BoardsPage/BoardsPage'
+export { default as BoardDetailsPage } from './BoardDetailsPage/BoardDetailsPage'

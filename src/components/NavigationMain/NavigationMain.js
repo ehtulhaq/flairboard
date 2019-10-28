@@ -9,35 +9,38 @@ import { css } from 'glamor'
  */
 loadTheme({
   palette: {
-    themePrimary: '#22c887',
-    themeLighterAlt: '#f4fdfa',
-    themeLighter: '#d5f6e9',
-    themeLight: '#b3efd7',
-    themeTertiary: '#6fdeb3',
-    themeSecondary: '#37cf94',
-    themeDarkAlt: '#1eb47a',
-    themeDark: '#1a9867',
-    themeDarker: '#13704c',
-    neutralLighterAlt: '#ececec',
-    neutralLighter: '#e8e8e8',
-    neutralLight: '#dfdfdf',
-    neutralQuaternaryAlt: '#d0d0d0',
-    neutralQuaternary: '#c6c6c6',
-    neutralTertiaryAlt: '#bebebe',
+    themePrimary: '#007baa',
+    themeLighterAlt: '#f2f9fc',
+    themeLighter: '#cbe7f1',
+    themeLight: '#a1d2e6',
+    themeTertiary: '#52aacc',
+    themeSecondary: '#1688b5',
+    themeDarkAlt: '#006e99',
+    themeDark: '#005d81',
+    themeDarker: '#00455f',
+    neutralLighterAlt: '#f8f8f8',
+    neutralLighter: '#f4f4f4',
+    neutralLight: '#eaeaea',
+    neutralQuaternaryAlt: '#dadada',
+    neutralQuaternary: '#d0d0d0',
+    neutralTertiaryAlt: '#c8c8c8',
     neutralTertiary: '#bab8b7',
     neutralSecondary: '#a3a2a0',
     neutralPrimaryAlt: '#8d8b8a',
     neutralPrimary: '#323130',
     neutralDark: '#605e5d',
     black: '#494847',
-    white: '#f3f3f3',
+    white: '#ffffff',
+    success: '#00d280',
+    danger: '#de212d',
   }
 })
 const theme = getTheme()
 const stackClass = css({
   maxWidth: 100,
   width: 80,
-  background: theme.palette.themeDarker
+  background: theme.palette.themeDarker,
+  justifyContent: 'space-between'
 })
 
 const linkClass = css({
@@ -72,7 +75,14 @@ const textClass = css({
   color: theme.palette.themeLighterAlt
 })
 
-export default class NavigationMain extends React.Component {
+const versionText = css({
+  color: theme.palette.neutralTertiary,
+  alignSelf: 'center',
+  textAlign: 'center',
+  marginBottom: 15
+})
+
+class NavigationMain extends React.Component {
 
   render() {
     return (
@@ -81,45 +91,41 @@ export default class NavigationMain extends React.Component {
           vertical
           items={[
             {
-              key: 'key0',
-              name: 'Home',
-              url: '/dashboard',
-              icon: 'HomeSolid',
+              key: 'boards',
+              name: 'Boards',
+              url: '/boards',
+              icon: 'StackIndicator',
             }, {
-              key: 'key1',
-              name: 'Dashboards',
-              url: '/dashboard',
-              icon: 'GoToDashboard',
-            }, {
-              key: 'key2',
-              name: 'Tasks',
-              url: '/tasks',
-              icon: 'TaskLogo'
-            }, {
-              key: 'key3',
+              key: 'reports',
               name: 'Reports',
               url: '/reports',
-              icon: 'ReportDocument'
+              icon: 'FinancialSolid'
             }, {
-              key: 'key4',
+              key: 'templates',
               name: 'Templates',
               url: '/templates',
-              icon: 'FileTemplate'
+              icon: 'PageListSolid'
             }, {
-              key: 'key5',
+              key: 'settings',
               name: 'Settings',
               url: '/settings',
               icon: 'Settings'
             }, {
-              key: 'key6',
+              key: 'chat',
+              name: 'Chat',
+              url: '/chat',
+              icon: 'OfficeChatSolid'
+            }, {
+              key: 'help',
               name: 'Help',
               url: '/help',
-              icon: 'Info'
+              icon: 'InfoSolid'
             }
           ]
           }
           onRenderItem={this.onRenderItem}
         />
+        <Text variant='tiny' {...css(versionText)}>Version 1.0.0</Text>
       </Stack>
     )
   }
@@ -133,3 +139,6 @@ export default class NavigationMain extends React.Component {
     )
   }
 }
+
+
+export default NavigationMain

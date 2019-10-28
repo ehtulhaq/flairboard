@@ -1,47 +1,33 @@
 import React from 'react'
-import { BasePage } from '../../pages'
-import { Stack, Text, FontIcon, CommandBar, SearchBox } from 'office-ui-fabric-react'
+import { CommandBar, Stack, getTheme, Text } from 'office-ui-fabric-react'
 import { css } from 'glamor'
-
+import { withRouter } from 'react-router-dom'
 /**
- * DashboardPage is a sample dashboard page that includes BasePage
- * 
+ * SecondaryCommandBar component that displays common tasks on Dashboard
+ *
  * @author [Ehtesham Ul Haq]
  */
-const fontClass = css({
-  fontSize: 32
+
+const theme = getTheme()
+const secondaryCommandBarContainer = css({
+  background: theme.palette.neutralLight,
+  width: '96%',
+  position: 'fixed',
+  zIndex: 1
 })
-const areaRight = css({
-  flex: '100%'
+const boardTitle = css({
+  flex:1
 })
-const searchField = css({
-  flex: '50%',
-  display:'flex'
-})
-export default class DashboardPage extends React.Component {
+class BoardsCommandBar extends React.Component {
   render() {
     return (
-      <BasePage>
-        <Stack horizontal={true} horizontalAlign='start'>
-          <FontIcon {...css(fontClass)} iconName='GoToDashboard' />
-          <Text variant='xxLarge' className='ml-1'>Dashboard</Text>
-          <Stack {...css(areaRight)}>
-            <CommandBar
-              farItems={this.getItmes()}
-            />
-          </Stack>
-        </Stack>
-        <Stack>
-          <SearchBox
-            className='searchFiledDashboard'
-            placeholder="Search"
-            onSearch={newValue => console.log('value is ' + newValue)}
-            onFocus={() => console.log('onFocus called')}
-            onBlur={() => console.log('onBlur called')}
-            onChange={() => console.log('onChange called')}
-          />
-        </Stack>
-      </BasePage>
+      <Stack horizontal={true} horizontalAlign='start' verticalAlign='center' className='pr-2 pl-2 pt-1 ml-0 mr-0' {...css(secondaryCommandBarContainer)}>
+        <Text variant='xxLarge' {...css(boardTitle)}>WEB OCTOBER 2019</Text>
+        <CommandBar
+          className='secondaryCommandBar'
+          farItems={this.getItmes()}
+        />
+      </Stack>
     )
   }
 
@@ -54,6 +40,7 @@ export default class DashboardPage extends React.Component {
         iconProps: {
           iconName: 'Add'
         },
+        className: 'secondaryCommandBarButton',
         ariaLabel: 'New',
         subMenuProps: {
           items: [
@@ -80,6 +67,7 @@ export default class DashboardPage extends React.Component {
         iconProps: {
           iconName: 'Upload'
         },
+        className: 'secondaryCommandBarButton',
         href: 'https://dev.office.com/fabric'
       },
       {
@@ -88,6 +76,7 @@ export default class DashboardPage extends React.Component {
         iconProps: {
           iconName: 'Share'
         },
+        className: 'secondaryCommandBarButton',
         onClick: () => console.log('Share')
       },
       {
@@ -96,8 +85,20 @@ export default class DashboardPage extends React.Component {
         iconProps: {
           iconName: 'Download'
         },
+        className: 'secondaryCommandBarButton',
         onClick: () => console.log('Download')
+      }, {
+        key: 'allboards',
+        name: 'All Boards',
+        iconProps: {
+          iconName: 'WaffleOffice365'
+        },
+        className: 'secondaryCommandBarButton',
+        onClick: () => { this.props.history.push('/boards') }
       }
     ];
   }
 }
+
+
+export default withRouter(BoardsCommandBar)

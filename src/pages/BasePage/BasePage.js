@@ -12,22 +12,20 @@ import { getTheme } from '@uifabric/styling'
  */
 const theme = getTheme()
 const stackStyles = css({
-  background: theme.palette.white,
+  background: theme.palette.neutralLight,
   flex: '100%'
 })
 const areaRight = css({
-  padding: '20px !important',
-  flex: '100%'
+  flex: '100%',
+  overflow: 'auto'
 })
-export default class BasePage extends React.Component {
+class BasePage extends React.Component {
   render() {
     return (
       <Stack verticalFill={true}>
         <WindowFrame />
         <Stack horizontal={true} horizontalAlign='start' {...css(stackStyles)} verticalFill={true}>
-          <Stack margin={10}>
-            <NavigationMain />
-          </Stack>
+          <NavigationMain />
           <div {...css(areaRight)}>
             {this.props.children}
           </div>
@@ -37,3 +35,5 @@ export default class BasePage extends React.Component {
     )
   }
 }
+
+export default BasePage

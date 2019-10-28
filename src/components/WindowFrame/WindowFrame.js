@@ -1,25 +1,26 @@
 import React from 'react'
-import { Stack, getTheme, TextField } from 'office-ui-fabric-react'
+import { Stack, getTheme } from 'office-ui-fabric-react'
 import { css } from 'glamor'
+import logo from '../../assets/images/logo.png'
 /**
- * Navigation component that sticks on the top with all navigation links
+ * Window Frame global component that holds application frame
  *
  * @author [Ehtesham Ul Haq]
  */
 const theme = getTheme()
 const windowFrame = css({
-  minHeight: 54,
-  background: theme.palette.themeDarkAlt,
+  minHeight: 40,
+  background: 'linear-gradient('+theme.palette.themeDarker+','+theme.palette.themeDarkAlt+')',
 })
-export default class WindowFrame extends React.Component {
+class WindowFrame extends React.Component {
 
   render() {
     return (
-      <div {...css(windowFrame)}>
-        <Stack.Item horizontal='true' verticalFill={true} align='center'>
-          {/**<TextField className='searchField' />**/}
-        </Stack.Item>
-      </div>
+      <Stack verticalAlign='center' horizontalAlign='center' horizontal {...css(windowFrame)}>
+        <img alt='Flair Board' src={logo} width={120} />
+      </Stack>
     )
   }
 }
+
+export default WindowFrame
