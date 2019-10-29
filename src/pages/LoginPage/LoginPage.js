@@ -6,7 +6,7 @@ import React from 'react'
  * @author [Ehtesham Ul Haq]
  */
 export default class LoginPage extends React.Component {
-  render () {
+  render = () => {
     return (
       <div>
         <h1>Login</h1>

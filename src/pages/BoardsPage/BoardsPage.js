@@ -14,12 +14,22 @@ const boardWrapper = css({
   marginTop: 60
 })
 class BoardsPage extends React.Component {
-  render() {
+  render = () => {
     return (
       <BasePage>
         <BoardsCB />
         <div className='mt-4'></div>
         <Stack className='p-2' {...css(boardWrapper)} horizontal wrap>
+          <BoardCard />
+          <BoardCard />
+          <BoardCard />
+          <BoardCard />
+          <BoardCard />
+          <BoardCard />
+          <BoardCard />
+          <BoardCard />
+          <BoardCard />
+          <BoardCard />
           <BoardCard />
           <BoardCard />
           <BoardCard />

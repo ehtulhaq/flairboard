@@ -84,7 +84,7 @@ const versionText = css({
 
 class NavigationMain extends React.Component {
 
-  render() {
+  render = () => {
     return (
       <Stack verticalFill={true} verticalAlign='top' {...css(stackClass)}>
         <OverflowSet

@@ -10,15 +10,15 @@ import { withRouter } from 'react-router-dom'
 
 const theme = getTheme()
 const secondaryCommandBarContainer = css({
-  background: theme.palette.neutralLight,
+  background: theme.palette.neutralLighterAlt,
   width: '96%',
   position: 'fixed',
   zIndex: 1
 })
 class BoardsCB extends React.Component {
-  render() {
+  render = () => {
     return (
-      <Stack horizontal={true} horizontalAlign='start' className='pr-2 pl-2 pt-1 ml-0 mr-0' {...css(secondaryCommandBarContainer)}>
+      <Stack horizontal={true} horizontalAlign='start' className='pr-2 pl-2 pt-1' {...css(secondaryCommandBarContainer)}>
         <SearchBox
           className='searchFiledDashboard'
           placeholder="Search"
@@ -30,13 +30,13 @@ class BoardsCB extends React.Component {
         />
         <CommandBar
           className='secondaryCommandBar'
-          farItems={this.getItmes()}
+          farItems={this._getItmes()}
         />
       </Stack>
     )
   }
 
-  getItmes = () => {
+  _getItmes = () => {
     return [
       {
         key: 'newItem',

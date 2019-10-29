@@ -12,7 +12,7 @@ import { getTheme } from '@uifabric/styling'
  */
 const theme = getTheme()
 const stackStyles = css({
-  background: theme.palette.neutralLight,
+  background: theme.palette.neutralLighterAlt,
   flex: '100%'
 })
 const areaRight = css({
@@ -20,7 +20,7 @@ const areaRight = css({
   overflow: 'auto'
 })
 class BasePage extends React.Component {
-  render() {
+  render = () => {
     return (
       <Stack verticalFill={true}>
         <WindowFrame />

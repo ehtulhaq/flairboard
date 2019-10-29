@@ -29,16 +29,21 @@ const headLink = css({
   }
 })
 
+const cardAction = css({
+  borderBottom: '1px solid ' + theme.palette.neutralLighter
+})
+
 const copyID = getId('copyID')
 const infoID = getId('infoID')
 const completedOnID = getId('completedOnID')
+const instanceID = getId('instanceID')
 class CardsList extends React.Component {
 
-  render() {
+  render = () => {
     return (
       <div className='card m-0' {...css(cardProps)}>
-        <Stack horizontal={true} horizontalAlign={true} className='card-action'>
-          <Stack.Item aria-describedby={completedOnID} grow={3} verticalFill={true} align='center'>
+        <Stack horizontal={true} horizontalAlign={true} {...css(cardAction)}>
+          <Stack.Item aria-describedby={completedOnID} grow={3} verticalFill={true} className='pl-1' align='center'>
             <TooltipHost
               content='Completed On'
               id={completedOnID}
@@ -56,7 +61,17 @@ class CardsList extends React.Component {
               calloutProps={{ gapSpace: 0 }}
               styles={{ root: { display: 'inline-block' } }}
             >
-              <IconButton aria-describedby={copyID} iconProps={{ iconName: 'AddToShoppingList' }} />
+              <IconButton aria-describedby={copyID} iconProps={{ iconName: 'PageAdd' }} />
+            </TooltipHost>
+          </Stack.Item>
+          <Stack.Item align='right'>
+            <TooltipHost
+              content='Create Instance from this board'
+              id={instanceID}
+              calloutProps={{ gapSpace: 0 }}
+              styles={{ root: { display: 'inline-block' } }}
+            >
+              <IconButton aria-describedby={instanceID} iconProps={{ iconName: 'Copy' }} />
             </TooltipHost>
           </Stack.Item>
           <Stack.Item align='right'>
@@ -70,14 +85,14 @@ class CardsList extends React.Component {
             </TooltipHost>
           </Stack.Item>
         </Stack>
-        <div className='card-head'>
+        <div className='card-head p-1'>
           <Link to='/board-details' {...css(headLink)}>
-            <Text variant='xxLarge'>
+            <Text variant='xLarge'>
               WEB OCTOBER 2019
             </Text>
           </Link>
         </div>
-        <div className='card-body'>
+        <div className='card-body pb-1 pr-1 pl-1'>
           <Text variant='medium'>Lorem ipsum some text that i would like to displayLorem ipsum some text that i would like to displayLorem ipsum some text that i would like to display</Text>
         </div>
       </div>

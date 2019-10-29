@@ -1,6 +1,7 @@
 import React from 'react'
 import { PivotItem, Pivot, Label } from 'office-ui-fabric-react'
-import {css} from 'glamor'
+import { TasksList } from '../../components'
+import { css } from 'glamor'
 /**
  * TasksPivots component that shows list of tasks
  *
@@ -17,7 +18,7 @@ class TasksPivots extends React.Component {
       <div className='m-0' {...css(pivotList)}>
         <Pivot>
           <PivotItem headerText="My Files" itemCount={42} itemIcon="Emoji2">
-            {this.props.children}
+            <TasksList />
           </PivotItem>
           <PivotItem itemCount={23} itemIcon="Recent">
             <Label>Pivot #2</Label>

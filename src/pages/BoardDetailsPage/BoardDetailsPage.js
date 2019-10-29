@@ -13,7 +13,7 @@ const boardWrapper = css({
   marginTop: 60
 })
 class BoardDetails extends React.Component {
-  render() {
+  render = () => {
     return (
       <BasePage>
         <BoardDetailsCB />

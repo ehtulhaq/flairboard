@@ -10,11 +10,12 @@ import logo from '../../assets/images/logo.png'
 const theme = getTheme()
 const windowFrame = css({
   minHeight: 40,
-  background: 'linear-gradient('+theme.palette.themeDarker+','+theme.palette.themeDarkAlt+')',
+  /**background: 'linear-gradient(' + theme.palette.themeDarker + ',' + theme.palette.themeDarkAlt + ')'**/
+  background: theme.palette.themeDarkAlt
 })
 class WindowFrame extends React.Component {
 
-  render() {
+  render = () => {
     return (
       <Stack verticalAlign='center' horizontalAlign='center' horizontal {...css(windowFrame)}>
         <img alt='Flair Board' src={logo} width={120} />

@@ -10,28 +10,28 @@ import { withRouter } from 'react-router-dom'
 
 const theme = getTheme()
 const secondaryCommandBarContainer = css({
-  background: theme.palette.neutralLight,
+  background: theme.palette.neutralLighterAlt,
   width: '96%',
   position: 'fixed',
   zIndex: 1
 })
 const boardTitle = css({
-  flex:1
+  flex: 1
 })
 class BoardsCommandBar extends React.Component {
-  render() {
+  render = () => {
     return (
       <Stack horizontal={true} horizontalAlign='start' verticalAlign='center' className='pr-2 pl-2 pt-1 ml-0 mr-0' {...css(secondaryCommandBarContainer)}>
         <Text variant='xxLarge' {...css(boardTitle)}>WEB OCTOBER 2019</Text>
         <CommandBar
           className='secondaryCommandBar'
-          farItems={this.getItmes()}
+          farItems={this._getItmes()}
         />
       </Stack>
     )
   }
 
-  getItmes = () => {
+  _getItmes = () => {
     return [
       {
         key: 'newItem',
